@@ -30,4 +30,11 @@ public class Role {
 		this.name = name;
 		this.description = description;
 	}
+
+	public Role(Integer id) {
+		super();
+		this.id = id;
+	}
+	
+	
 }
