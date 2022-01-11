@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.shopme.common.entity.Role;
 import com.shopme.common.entity.User;
 
 @Service
@@ -13,8 +14,19 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 	
+	@Autowired
+	RoleRepository roleRepository;
+	
 	public List<User> listAll(){
 		return userRepository.findAll();
+	}
+	
+	public List<Role> listRoles(){
+		return roleRepository.findAll();
+	}
+
+	public void save(User user) {
+		userRepository.save(user);
 	}
 
 }
