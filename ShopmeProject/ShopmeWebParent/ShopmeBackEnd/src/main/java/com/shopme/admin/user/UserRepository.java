@@ -1,6 +1,7 @@
 package com.shopme.admin.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -12,4 +13,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	public User getUserByEmail(@Param("email") String email);
 	
 	public Long countById(Integer i);
+	
+	@Query("UPDATE User u SET u.enabled = :enabled WHERE u.id = :id")
+	@Modifying
+	public void updateUserEnabledStatus(@Param("id") Integer id, @Param("enabled") boolean enabled);
 }
