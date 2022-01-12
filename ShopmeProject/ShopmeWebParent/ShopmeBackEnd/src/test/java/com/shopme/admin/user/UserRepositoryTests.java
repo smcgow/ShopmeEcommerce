@@ -90,4 +90,11 @@ public class UserRepositoryTests {
 		User aoife = aoifeOpt.get();
 		userRepository.delete(aoife);
 	}
+	
+	@Test
+	public void testGetUserByEmail() {
+		String email = "stephen.mcgowan@live.ie";
+		User user = userRepository.getUserByEmail(email);
+		assertThat(user).isNotNull();
+	}
 }
