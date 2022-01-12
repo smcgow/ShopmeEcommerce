@@ -48,6 +48,7 @@ public class UserService {
 		userRepository.save(user);
 	}
 	
+	
 	private void encodePassword(User user) {
 		String encodedPassword = passwordEncoder.encode(user.getPassword());
 		user.setPassword(encodedPassword);
@@ -80,5 +81,13 @@ public class UserService {
 			throw new UserNotFoundException("Could not find any user with ID " + id);
 		}
 	}
-
+	
+	public void delete(Integer id) throws UserNotFoundException {
+		Long countById = userRepository.countById(id);
+		if(countById == null || countById == 0L) {
+			throw new UserNotFoundException("Could not find any user with ID " + id);
+		}
+		userRepository.deleteById(id);
+	}
+	
 }
