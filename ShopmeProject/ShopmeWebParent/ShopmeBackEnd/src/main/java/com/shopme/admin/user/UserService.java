@@ -1,6 +1,7 @@
 package com.shopme.admin.user;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -30,7 +31,20 @@ public class UserService {
 	}
 
 	public void save(User user) {
-		encodePassword(user);
+		
+		Boolean isUpdate = user.getId() != null;
+		
+		if(isUpdate) {
+			if(user.getPassword().isEmpty()) {
+				User existingUser = userRepository.getById(user.getId());
+				user.setPassword(existingUser.getPassword());
+			}else {
+				encodePassword(user);
+			}
+		}else {
+			encodePassword(user);
+		}
+		
 		userRepository.save(user);
 	}
 	
@@ -39,9 +53,32 @@ public class UserService {
 		user.setPassword(encodedPassword);
 	}
 	
-	public Boolean isEmailUnique(String email) {
+	public Boolean isEmailUnique(Integer id, String email) {
 		User user = userRepository.getUserByEmail(email);
-		return user == null;
+		
+		/* 
+		 * If user is not found email is unique.
+		 * Else If no id it means we are creating so not unique if user found.
+		 * Else if the id does exist we are editing and if it's not the same user we block the edit if same email address.
+		 * Else it's the same user editing their data hence we allow the update by returning true.
+		 */
+		if(user == null) {
+			return true;
+		}else if(id == null) {
+			return false;
+		}else if(!user.getId().equals(id)){
+			return false;
+		}else {
+			return true;
+		}
+	}
+
+	public User getUser(Integer id) throws UserNotFoundException {
+		try {
+			return userRepository.findById(id).get();
+		}catch(NoSuchElementException ex) {
+			throw new UserNotFoundException("Could not find any user with ID " + id);
+		}
 	}
 
 }
