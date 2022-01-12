@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-		<title>Create New User</title>
+		<title>[[${pageTitle}]]</title>
 		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
 		<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
@@ -59,12 +59,13 @@
 			</div>
 			
 			<div>
-				<h1>Manage Users | Create New User</h1>
+				<h1>Manage Users | [[${pageTitle}]]</h1>
 			</div>
 			
 			<form th:action="@{/users/save}" method="POST" style="max-width: 700px; margin: 0 auto;"
 					th:object="${user}" onsubmit="return checkEmailUnique(this)">
 				<div class="border border-secondary rounded p-3">
+					<input id="userId" type="hidden" th:field="*{id}"/>
 					
 					<div class="form-group row">
 						<label class="col-sm-4 col-form-label">E-mail:</label>
@@ -90,7 +91,8 @@
 					<div class="form-group row">
 						<label class="col-sm-4 col-form-label">Password:</label>
 						<div class="col-sm-8">
-							<input type="password" class="form-control" th:field="*{password}" required minlength="8" maxlength="128"/>
+							<input th:if="${user.id == null}" type="password" class="form-control" th:field="*{password}" required minlength="8" maxlength="128"/>
+							<input th:if="${user.id != null}" type="password" class="form-control" th:field="*{password}" minlength="8" maxlength="128"/>
 						</div>
 					</div>
 					
@@ -160,8 +162,10 @@
 			function checkEmailUnique(form){
 				let url = "[[@{/users/check_email}]]"
 				let email = $("#email").val()
+				let id = $("#userId").val()
 				let csrf = $("input[name='_csrf']").val()
 				let params = {
+					id: id,
 					email : email,
 					_csrf : csrf
 				}
