@@ -63,6 +63,7 @@
 			</div>
 			
 			<form th:action="@{/users/save}" method="POST" style="max-width: 700px; margin: 0 auto;"
+					enctype="multipart/form-data"
 					th:object="${user}" onsubmit="return checkEmailUnique(this)">
 				<div class="border border-secondary rounded p-3">
 					<input id="userId" type="hidden" th:field="*{id}"/>
@@ -118,6 +119,15 @@
 						</div>
 					</div>
 					
+					<div class="form-group row">
+						<label class="col-sm-4 col-form-label">Photo:</label>
+						<div class="col-sm-8">
+							<input type="hidden" th:field="*{photos}"/>
+							<input type="file" id="fileImage" name="image" accept="image/png, image/jpeg" class="mb-2" />
+							<img id="thumbnail" alt="Photos Preview" th:src="@{${user.photoImagePath}}" class="img-fluid" style="width: 100px;" />
+						</div>
+					</div>
+					
 					<div class="text-center">
 						<input type="submit" class="btn btn-primary m-3" value="Save"/>
 						<input type="button" class="btn btn-secondary" value="Cancel" id="cancelButton"/>
@@ -157,7 +167,30 @@
 				$("#cancelButton").on("click", function(){
 					window.location = "[[@{/users}]]"
 				})
+				
+				$("#fileImage").change(function(){
+					let fileSize = this.files[0].size
+					if(fileSize > 1048576){
+						this.setCustomValidity("You must choose an image 1 MB or smaller.");
+						this.reportValidity();
+					}else{
+						this.setCustomValidity("");
+						showImageThumbnail(this);
+					}
+					
+				})
+				
 			})
+			
+			function showImageThumbnail(fileInput){
+				let file = fileInput.files[0]
+				let fileReader = new FileReader()
+				fileReader.onload = function(e){
+					$("#thumbnail").attr("src", e.target.result)
+				}
+				fileReader.readAsDataURL(file);
+			}
+			
 			
 			function checkEmailUnique(form){
 				let url = "[[@{/users/check_email}]]"

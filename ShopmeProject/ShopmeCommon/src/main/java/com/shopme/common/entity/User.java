@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.Data;
 
@@ -65,4 +66,11 @@ public class User {
 		super();
 	}
 	
+	@Transient
+	public String getPhotoImagePath() {
+		if(photos == null || photos.isEmpty()) {
+			return "/images/default-user.png";
+		}
+		return "/user-photos/" + this.id + "/" + this.getPhotos();
+	}
 }
