@@ -19,7 +19,7 @@ import org.springframework.test.annotation.Rollback;
 import com.shopme.common.entity.Role;
 import com.shopme.common.entity.User;
 
-@DataJpaTest(showSql = false)
+@DataJpaTest(showSql = true)
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
 public class UserRepositoryTests {
@@ -128,5 +128,17 @@ public class UserRepositoryTests {
 		Page<User> listOfUsers = userRepository.findAll(pageable);
 		listOfUsers.getContent().forEach(System.out::println);
 		assertThat(listOfUsers.getContent().size()).isEqualTo(4);
+	}
+	
+	@Test
+	public void testSearchByKeyword() {
+		String keyword = "gmail";
+		Integer pageNumber = 0;
+		Integer pageSize = 4;
+		
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
+		Page<User> listOfUsers = userRepository.findAll(keyword, pageable);
+		listOfUsers.getContent().forEach(System.out::println);
+		assertThat(listOfUsers.getContent().size()).isGreaterThan(0);
 	}
 }
