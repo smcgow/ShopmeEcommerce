@@ -3,6 +3,8 @@ package com.shopme.admin.user;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -136,6 +138,13 @@ public class UserController {
 		String message = "The user with ID : " + id + " has been " + status;
 		redirectAttributes.addFlashAttribute("message", message);
 		return "redirect:/users";
+	}
+	
+	@GetMapping("/users/export/csv")
+	public void exportToCsv(HttpServletResponse response) throws IOException {
+		UserCsvExporter userCsvExporter = new UserCsvExporter();
+		List<User> users  = userService.listAll();
+		userCsvExporter.export(users, response);
 	}
 
 }
