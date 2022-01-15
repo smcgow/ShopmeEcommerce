@@ -2,16 +2,11 @@ package com.shopme.admin.user;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFFont;
@@ -49,6 +44,7 @@ public class UserExcelExporter extends AbstractExporter {
 	}
 	
 	private void writeDataLines(List<User> users) {
+		
 		XSSFCellStyle cellStyle = workbook.createCellStyle();
 		XSSFFont font = workbook.createFont();
 		font.setFontHeight(14);
@@ -71,8 +67,11 @@ public class UserExcelExporter extends AbstractExporter {
 	
 
 	private void createCell(XSSFRow row, XSSFCellStyle cellStyle, Object content, Integer columnIndex) {
+		
 		XSSFCell cell = row.createCell(columnIndex);
 		sheet.autoSizeColumn(columnIndex);
+		cell.setCellStyle(cellStyle);
+		
 		if(content instanceof Boolean) {
 			cell.setCellValue((Boolean)content);
 		}else if(content instanceof Integer) {
@@ -80,7 +79,8 @@ public class UserExcelExporter extends AbstractExporter {
 		}else {
 			cell.setCellValue(content.toString());
 		}
-		cell.setCellStyle(cellStyle);
+		
+		
 	}
 
 	public void export(List<User> users, HttpServletResponse response) throws IOException {
