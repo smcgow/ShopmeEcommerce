@@ -3,7 +3,7 @@
 	<head>
 	</head>
 	<body>
-		<th th:fragment="user_list_header(fieldName,columnName)">
+		<th  th:fragment="user_list_header(fieldName,columnName,removeTag)" th:remove="${removeTag}">
 			<a class="text-white"
 				th:href="@{'/users/page/' + ${currentPage} + '/?sortField=' + ${fieldName} + '&sortDir=' + ${sortDir == 'asc' ? 'desc' : 'asc'} + ${keyword != null ? '&keyword=' + keyword : ''} }">
 					[[${columnName}]]
