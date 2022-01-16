@@ -54,6 +54,10 @@ public class ShopmeUserDetails implements UserDetails {
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
+	
+	public String getFullName() {
+		return user.getFullName();
+	}
 
 	@Override
 	public boolean isEnabled() {
