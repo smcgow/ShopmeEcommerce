@@ -13,6 +13,10 @@
 	</head>
 	<body>
 		<div class="container-fluid">
+		
+			<form th:action="@{/logout}" method="post" id="logoutForm" th:hidden="true"> 
+				<input type="submit"/>
+			</form>
 			<div>
 				<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
 					<a class="navbar-brand" th:href="@{/}">
@@ -63,7 +67,7 @@
 								<div class="dropdown">
 							      <a class="nav-link dropdown-toggle" data-toggle="dropdown" sec:authentication="principal.fullName" href="#"></a>
 							      	<div class="dropdown-menu" role="menu">            
-						       			<a class="drop-down-item btn btn-primary" href="#">Logout</a>
+						       			<a class="drop-down-item pl-3" href="#" id="logoutLink">Logout</a>
 							       </div>
 							    </div>  
 							</li>
@@ -81,5 +85,16 @@
 			</div>
 			
 		</div>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#logoutLink").on("click", function(e){
+					e.preventDefault();
+					$("#logoutForm").submit()
+				})
+			});
+		
+		</script>
+		
 	</body>
 </html>
