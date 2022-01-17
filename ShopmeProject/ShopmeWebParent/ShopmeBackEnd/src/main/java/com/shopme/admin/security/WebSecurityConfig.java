@@ -46,7 +46,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginPage("/login")
 				.usernameParameter("email")
 				.permitAll()
-			.and().logout().permitAll();
+			.and().logout().permitAll()
+			.and().rememberMe().key("ac7f2fa7-5b07-4e81-9468-5fae974f561c")
+					.tokenValiditySeconds(7 * 24 * 60 * 60)
+					.userDetailsService(shopmeUserDetailsService());
 	}
 
 	@Override
