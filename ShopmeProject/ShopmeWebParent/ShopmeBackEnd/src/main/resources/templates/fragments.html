@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
+	<head th:fragment="page_head(title)">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+		<title>[[${title}]]</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/fontawesome/css/all.css}" />
+		<link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+		<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/common.js}"></script>
 	</head>
 	<body>
 		<th  th:fragment="user_list_header(fieldName,columnName,removeTag)" th:remove="${removeTag}">
@@ -15,6 +24,10 @@
 		
 		<a th:fragment="user_page_link(pageNum,linkText)"  class="page-link" 
 			th:href="@{'/users/page/' + ${pageNum} + '/?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">[[${linkText}]]</a>
+		
+		<div th:fragment="page_footer()" class="text-center m-3">
+			<p>Shopme Control Panel - Copyright &copy;Shopme</p>
+		</div>
 					    
 	</body>
 </html>
