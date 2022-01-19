@@ -1,0 +1,471 @@
+2022-01-19 21:51:45.173  INFO 21828 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Starting ShopmeBackEndApplication using Java 17.0.1 on LAPTOP-B51PEBFB with PID 21828 (C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\target\classes started by 35385 in C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd)
+2022-01-19 21:51:45.173 DEBUG 21828 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-19 21:51:45.173  INFO 21828 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : No active profile set, falling back to default profiles: default
+2022-01-19 21:51:45.533  INFO 21828 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-19 21:51:45.562  INFO 21828 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 2 JPA repository interfaces.
+2022-01-19 21:51:45.826  INFO 21828 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-01-19 21:51:45.827  INFO 21828 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-19 21:51:45.827  INFO 21828 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-19 21:51:45.888  INFO 21828 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2022-01-19 21:51:45.888  INFO 21828 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 700 ms
+2022-01-19 21:51:45.951  INFO 21828 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-19 21:51:45.968  INFO 21828 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-01-19 21:51:45.990  INFO 21828 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2022-01-19 21:51:45.991  INFO 21828 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-19 21:51:46.085  INFO 21828 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-19 21:51:46.086  INFO 21828 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 21:51:46.128  WARN 21828 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-19 21:51:46.308  INFO 21828 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2022-01-19 21:51:46.308  INFO 21828 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-01-19 21:51:46.308  INFO 21828 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-01-19 21:51:46.319  INFO 21828 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@519b7c6a, org.springframework.security.web.context.SecurityContextPersistenceFilter@66235215, org.springframework.security.web.header.HeaderWriterFilter@16ca734c, org.springframework.security.web.csrf.CsrfFilter@6380d312, org.springframework.security.web.authentication.logout.LogoutFilter@3326d5c2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7b4d2adc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@79182863, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3c8d641f, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6aeeb60d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@19109cff, org.springframework.security.web.session.SessionManagementFilter@35e192f, org.springframework.security.web.access.ExceptionTranslationFilter@25b74270, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@16cbd10f]
+2022-01-19 21:51:46.390  INFO 21828 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-01-19 21:51:46.858  INFO 21828 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-19 21:51:46.873  INFO 21828 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2022-01-19 21:51:46.894  INFO 21828 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Started ShopmeBackEndApplication in 1.833 seconds (JVM running for 77.655)
+2022-01-19 21:51:46.904  INFO 21828 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-01-19 21:52:12.989  INFO 21828 --- [RMI TCP Connection(13)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-01-19 21:52:13.028  INFO 21828 --- [RMI TCP Connection(13)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 21:52:13.029  INFO 21828 --- [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2022-01-19 21:52:13.036  INFO 21828 --- [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2022-01-19 21:52:17.098  INFO 13268 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Starting ShopmeBackEndApplication using Java 17.0.1 on LAPTOP-B51PEBFB with PID 13268 (C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\target\classes started by 35385 in C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd)
+2022-01-19 21:52:17.099 DEBUG 13268 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-19 21:52:17.099  INFO 13268 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : No active profile set, falling back to default profiles: default
+2022-01-19 21:52:17.175  INFO 13268 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-01-19 21:52:17.175  INFO 13268 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-01-19 21:52:18.085  INFO 13268 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-19 21:52:18.165  INFO 13268 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 2 JPA repository interfaces.
+2022-01-19 21:52:18.907  INFO 13268 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-01-19 21:52:18.918  INFO 13268 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-19 21:52:18.918  INFO 13268 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-19 21:52:19.067  INFO 13268 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2022-01-19 21:52:19.067  INFO 13268 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1891 ms
+2022-01-19 21:52:19.331  INFO 13268 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-19 21:52:19.401  INFO 13268 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-01-19 21:52:19.620  INFO 13268 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-19 21:52:19.763  INFO 13268 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-19 21:52:20.222  INFO 13268 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-19 21:52:20.245  INFO 13268 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-19 21:52:21.251  INFO 13268 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-19 21:52:21.273  INFO 13268 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 21:52:21.366  WARN 13268 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-19 21:52:22.263  INFO 13268 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2022-01-19 21:52:22.263  INFO 13268 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-01-19 21:52:22.264  INFO 13268 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-01-19 21:52:22.317  INFO 13268 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@221b825a, org.springframework.security.web.context.SecurityContextPersistenceFilter@5190347f, org.springframework.security.web.header.HeaderWriterFilter@7d390fba, org.springframework.security.web.csrf.CsrfFilter@6ad01b62, org.springframework.security.web.authentication.logout.LogoutFilter@557d14a3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@57aa2b36, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c12155, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1db9648b, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4ff2f908, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@246eeeb4, org.springframework.security.web.session.SessionManagementFilter@471e2e1, org.springframework.security.web.access.ExceptionTranslationFilter@aac183b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@42935526]
+2022-01-19 21:52:22.570  INFO 13268 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-01-19 21:52:23.224  INFO 13268 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-19 21:52:23.272  INFO 13268 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2022-01-19 21:52:23.285  INFO 13268 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Started ShopmeBackEndApplication in 6.71 seconds (JVM running for 7.836)
+2022-01-19 21:55:18.237  INFO 13268 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 21:55:18.240  INFO 13268 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-19 21:55:18.248  INFO 13268 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-19 21:55:18.372  INFO 13268 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Starting ShopmeBackEndApplication using Java 17.0.1 on LAPTOP-B51PEBFB with PID 13268 (C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\target\classes started by 35385 in C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd)
+2022-01-19 21:55:18.373 DEBUG 13268 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-19 21:55:18.373  INFO 13268 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : No active profile set, falling back to default profiles: default
+2022-01-19 21:55:18.642  INFO 13268 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-19 21:55:18.662  INFO 13268 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 2 JPA repository interfaces.
+2022-01-19 21:55:18.783  INFO 13268 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-01-19 21:55:18.783  INFO 13268 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-19 21:55:18.783  INFO 13268 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-19 21:55:18.819  INFO 13268 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2022-01-19 21:55:18.820  INFO 13268 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 440 ms
+2022-01-19 21:55:18.866  INFO 13268 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-19 21:55:18.876  INFO 13268 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-01-19 21:55:18.892  INFO 13268 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2022-01-19 21:55:18.893  INFO 13268 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-19 21:55:18.968  INFO 13268 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-19 21:55:18.969  INFO 13268 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 21:55:18.996  WARN 13268 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-19 21:55:19.133  INFO 13268 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2022-01-19 21:55:19.133  INFO 13268 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-01-19 21:55:19.133  INFO 13268 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-01-19 21:55:19.146  INFO 13268 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1c486f9a, org.springframework.security.web.context.SecurityContextPersistenceFilter@7eed1947, org.springframework.security.web.header.HeaderWriterFilter@5d91203f, org.springframework.security.web.csrf.CsrfFilter@5d4e7003, org.springframework.security.web.authentication.logout.LogoutFilter@1ca1db90, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1e2d8bdc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@634df7bb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3709a335, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@41b84c1d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7de80ae2, org.springframework.security.web.session.SessionManagementFilter@508db53d, org.springframework.security.web.access.ExceptionTranslationFilter@6c9e246d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1dff97d6]
+2022-01-19 21:55:19.192  INFO 13268 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-01-19 21:55:19.600  INFO 13268 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-19 21:55:19.612  INFO 13268 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2022-01-19 21:55:19.619  INFO 13268 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Started ShopmeBackEndApplication in 1.312 seconds (JVM running for 184.169)
+2022-01-19 21:55:19.623  INFO 13268 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-01-19 21:55:45.342  INFO 13268 --- [RMI TCP Connection(14)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-01-19 21:55:45.378  INFO 13268 --- [RMI TCP Connection(14)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 21:55:45.379  INFO 13268 --- [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2022-01-19 21:55:45.388  INFO 13268 --- [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2022-01-19 21:55:49.234  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Starting ShopmeBackEndApplication using Java 17.0.1 on LAPTOP-B51PEBFB with PID 2560 (C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\target\classes started by 35385 in C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd)
+2022-01-19 21:55:49.236 DEBUG 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-19 21:55:49.236  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : No active profile set, falling back to default profiles: default
+2022-01-19 21:55:49.315  INFO 2560 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-01-19 21:55:49.315  INFO 2560 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-01-19 21:55:50.143  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-19 21:55:50.219  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 2 JPA repository interfaces.
+2022-01-19 21:55:50.934  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-01-19 21:55:50.943  INFO 2560 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-19 21:55:50.943  INFO 2560 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-19 21:55:51.057  INFO 2560 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2022-01-19 21:55:51.058  INFO 2560 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1742 ms
+2022-01-19 21:55:51.346  INFO 2560 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-19 21:55:51.415  INFO 2560 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-01-19 21:55:51.620  INFO 2560 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-19 21:55:51.891  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-19 21:55:52.282  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-19 21:55:52.304  INFO 2560 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-19 21:55:53.292  INFO 2560 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-19 21:55:53.302  INFO 2560 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 21:55:53.378  WARN 2560 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-19 21:55:54.156  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2022-01-19 21:55:54.156  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-01-19 21:55:54.156  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-01-19 21:55:54.197  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ac77e44, org.springframework.security.web.context.SecurityContextPersistenceFilter@403c6b48, org.springframework.security.web.header.HeaderWriterFilter@7ccf7935, org.springframework.security.web.csrf.CsrfFilter@60378adc, org.springframework.security.web.authentication.logout.LogoutFilter@42b1fd5c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6d59dfde, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@46551195, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@217adf33, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@11de726b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7943fded, org.springframework.security.web.session.SessionManagementFilter@2773c3a5, org.springframework.security.web.access.ExceptionTranslationFilter@4de0a9b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3d5aa4c0]
+2022-01-19 21:55:54.416  INFO 2560 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-01-19 21:55:55.107  INFO 2560 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-19 21:55:55.152  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2022-01-19 21:55:55.162  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Started ShopmeBackEndApplication in 6.407 seconds (JVM running for 7.459)
+2022-01-19 21:58:52.275  INFO 2560 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 21:58:52.279  INFO 2560 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-19 21:58:52.289  INFO 2560 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-19 21:58:52.398  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Starting ShopmeBackEndApplication using Java 17.0.1 on LAPTOP-B51PEBFB with PID 2560 (C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\target\classes started by 35385 in C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd)
+2022-01-19 21:58:52.398 DEBUG 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-19 21:58:52.398  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : No active profile set, falling back to default profiles: default
+2022-01-19 21:58:52.720  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-19 21:58:52.740  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2022-01-19 21:58:52.890  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-01-19 21:58:52.891  INFO 2560 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-19 21:58:52.891  INFO 2560 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-19 21:58:52.927  INFO 2560 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2022-01-19 21:58:52.927  INFO 2560 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 521 ms
+2022-01-19 21:58:52.974  INFO 2560 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-19 21:58:52.984  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-01-19 21:58:53.006  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2022-01-19 21:58:53.007  INFO 2560 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-19 21:58:53.084  INFO 2560 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-19 21:58:53.085  INFO 2560 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 21:58:53.121  WARN 2560 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-19 21:58:53.279  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2022-01-19 21:58:53.280  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-01-19 21:58:53.280  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-01-19 21:58:53.298  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@65af7114, org.springframework.security.web.context.SecurityContextPersistenceFilter@375b008d, org.springframework.security.web.header.HeaderWriterFilter@37b9607a, org.springframework.security.web.csrf.CsrfFilter@35f4b7ff, org.springframework.security.web.authentication.logout.LogoutFilter@48a9c036, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@46f5ea76, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@549f9ac9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@28d99a90, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@44c8c7b1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@688de94f, org.springframework.security.web.session.SessionManagementFilter@278000cd, org.springframework.security.web.access.ExceptionTranslationFilter@1f7f8b04, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5b103c5]
+2022-01-19 21:58:53.391  INFO 2560 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-01-19 21:58:53.775  INFO 2560 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-19 21:58:53.792  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2022-01-19 21:58:53.800  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Started ShopmeBackEndApplication in 1.461 seconds (JVM running for 186.097)
+2022-01-19 21:58:53.803  INFO 2560 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-01-19 22:01:58.748  INFO 2560 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:01:58.749  INFO 2560 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2022-01-19 22:01:58.761  INFO 2560 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2022-01-19 22:01:58.883  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Starting ShopmeBackEndApplication using Java 17.0.1 on LAPTOP-B51PEBFB with PID 2560 (C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\target\classes started by 35385 in C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd)
+2022-01-19 22:01:58.883 DEBUG 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-19 22:01:58.883  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : No active profile set, falling back to default profiles: default
+2022-01-19 22:01:59.202  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-19 22:01:59.231  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 2 JPA repository interfaces.
+2022-01-19 22:01:59.385  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-01-19 22:01:59.386  INFO 2560 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-19 22:01:59.386  INFO 2560 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-19 22:01:59.427  INFO 2560 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2022-01-19 22:01:59.427  INFO 2560 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 539 ms
+2022-01-19 22:01:59.483  INFO 2560 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-19 22:01:59.495  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2022-01-19 22:01:59.513  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2022-01-19 22:01:59.514  INFO 2560 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-19 22:01:59.587  INFO 2560 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-19 22:01:59.588  INFO 2560 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:01:59.622  WARN 2560 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-19 22:01:59.764  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2022-01-19 22:01:59.764  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-01-19 22:01:59.764  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-01-19 22:01:59.770  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@46598b23, org.springframework.security.web.context.SecurityContextPersistenceFilter@3096cc1c, org.springframework.security.web.header.HeaderWriterFilter@739df7f9, org.springframework.security.web.csrf.CsrfFilter@6b93fa1b, org.springframework.security.web.authentication.logout.LogoutFilter@3bdda79c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63196b68, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@685645d4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74e85518, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@13be2711, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5170c690, org.springframework.security.web.session.SessionManagementFilter@44a1b5b1, org.springframework.security.web.access.ExceptionTranslationFilter@4b626f5d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@20a6f313]
+2022-01-19 22:01:59.825  INFO 2560 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-01-19 22:02:00.275  INFO 2560 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-19 22:02:00.290  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2022-01-19 22:02:00.298  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Started ShopmeBackEndApplication in 1.465 seconds (JVM running for 372.594)
+2022-01-19 22:02:00.305  INFO 2560 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-01-19 22:02:36.136  INFO 2560 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:02:36.137  INFO 2560 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2022-01-19 22:02:36.144  INFO 2560 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2022-01-19 22:02:36.271  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Starting ShopmeBackEndApplication using Java 17.0.1 on LAPTOP-B51PEBFB with PID 2560 (C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\target\classes started by 35385 in C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd)
+2022-01-19 22:02:36.271 DEBUG 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-19 22:02:36.271  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : No active profile set, falling back to default profiles: default
+2022-01-19 22:02:36.554  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-19 22:02:36.578  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 2 JPA repository interfaces.
+2022-01-19 22:02:36.704  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-01-19 22:02:36.705  INFO 2560 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-19 22:02:36.705  INFO 2560 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-19 22:02:36.740  INFO 2560 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2022-01-19 22:02:36.740  INFO 2560 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 465 ms
+2022-01-19 22:02:36.778  INFO 2560 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-19 22:02:36.790  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2022-01-19 22:02:36.808  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2022-01-19 22:02:36.809  INFO 2560 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-19 22:02:36.869  INFO 2560 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-19 22:02:36.869  INFO 2560 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:02:36.896  WARN 2560 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-19 22:02:37.086  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2022-01-19 22:02:37.087  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-01-19 22:02:37.087  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-01-19 22:02:37.096  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4b1b3d52, org.springframework.security.web.context.SecurityContextPersistenceFilter@2f25f215, org.springframework.security.web.header.HeaderWriterFilter@398a44a3, org.springframework.security.web.csrf.CsrfFilter@64509ee6, org.springframework.security.web.authentication.logout.LogoutFilter@13f03bb0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4a414de0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@20ae355b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4bead2b1, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@412a0e2f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25b079f1, org.springframework.security.web.session.SessionManagementFilter@4fe2e2a1, org.springframework.security.web.access.ExceptionTranslationFilter@1233b6fc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5087c848]
+2022-01-19 22:02:37.150  INFO 2560 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-01-19 22:02:37.541  INFO 2560 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-19 22:02:37.553  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2022-01-19 22:02:37.560  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Started ShopmeBackEndApplication in 1.351 seconds (JVM running for 409.856)
+2022-01-19 22:02:37.563  INFO 2560 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-01-19 22:05:32.856  INFO 2560 --- [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:05:32.857  INFO 2560 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2022-01-19 22:05:32.862  INFO 2560 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2022-01-19 22:05:32.956  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Starting ShopmeBackEndApplication using Java 17.0.1 on LAPTOP-B51PEBFB with PID 2560 (C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\target\classes started by 35385 in C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd)
+2022-01-19 22:05:32.956 DEBUG 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-19 22:05:32.957  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : No active profile set, falling back to default profiles: default
+2022-01-19 22:05:33.227  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-19 22:05:33.251  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 2 JPA repository interfaces.
+2022-01-19 22:05:33.358  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-01-19 22:05:33.359  INFO 2560 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-19 22:05:33.359  INFO 2560 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-19 22:05:33.391  INFO 2560 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2022-01-19 22:05:33.391  INFO 2560 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 429 ms
+2022-01-19 22:05:33.433  INFO 2560 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-19 22:05:33.443  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2022-01-19 22:05:33.457  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2022-01-19 22:05:33.457  INFO 2560 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-19 22:05:33.511  INFO 2560 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-19 22:05:33.511  INFO 2560 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:05:33.534  WARN 2560 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-19 22:05:33.666  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2022-01-19 22:05:33.666  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-01-19 22:05:33.667  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-01-19 22:05:33.676  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@234e939c, org.springframework.security.web.context.SecurityContextPersistenceFilter@20b5eb24, org.springframework.security.web.header.HeaderWriterFilter@73467540, org.springframework.security.web.csrf.CsrfFilter@541d3c1f, org.springframework.security.web.authentication.logout.LogoutFilter@67c37dcd, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@76869761, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1bc0f09e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b6c6ad3, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@9fa58f2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2fa3c2d, org.springframework.security.web.session.SessionManagementFilter@1df5c141, org.springframework.security.web.access.ExceptionTranslationFilter@3681b9fd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@35629ef6]
+2022-01-19 22:05:33.724  INFO 2560 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-01-19 22:05:34.083  INFO 2560 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-19 22:05:34.100  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2022-01-19 22:05:34.106  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Started ShopmeBackEndApplication in 1.19 seconds (JVM running for 586.402)
+2022-01-19 22:05:34.109  INFO 2560 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-01-19 22:05:57.314  INFO 2560 --- [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:05:57.316  INFO 2560 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2022-01-19 22:05:57.321  INFO 2560 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2022-01-19 22:05:57.407  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Starting ShopmeBackEndApplication using Java 17.0.1 on LAPTOP-B51PEBFB with PID 2560 (C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\target\classes started by 35385 in C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd)
+2022-01-19 22:05:57.407 DEBUG 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-19 22:05:57.407  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : No active profile set, falling back to default profiles: default
+2022-01-19 22:05:57.676  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-19 22:05:57.695  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 2 JPA repository interfaces.
+2022-01-19 22:05:57.800  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-01-19 22:05:57.800  INFO 2560 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-19 22:05:57.800  INFO 2560 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-19 22:05:57.830  INFO 2560 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2022-01-19 22:05:57.830  INFO 2560 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 418 ms
+2022-01-19 22:05:57.869  INFO 2560 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-19 22:05:57.878  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2022-01-19 22:05:57.892  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2022-01-19 22:05:57.893  INFO 2560 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-19 22:05:57.946  INFO 2560 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-19 22:05:57.947  INFO 2560 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:05:57.969  WARN 2560 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-19 22:05:58.083  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2022-01-19 22:05:58.083  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-01-19 22:05:58.083  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-01-19 22:05:58.095  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3680bbe1, org.springframework.security.web.context.SecurityContextPersistenceFilter@71f4b07c, org.springframework.security.web.header.HeaderWriterFilter@2e082ff4, org.springframework.security.web.csrf.CsrfFilter@6e4680f7, org.springframework.security.web.authentication.logout.LogoutFilter@6226395f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6bf07d5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c41d8c9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6359213a, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1009aae2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5dff956f, org.springframework.security.web.session.SessionManagementFilter@2b6fccde, org.springframework.security.web.access.ExceptionTranslationFilter@11fd96b5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@72733cf2]
+2022-01-19 22:05:58.143  INFO 2560 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-01-19 22:05:58.492  INFO 2560 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-19 22:05:58.504  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2022-01-19 22:05:58.511  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Started ShopmeBackEndApplication in 1.141 seconds (JVM running for 610.807)
+2022-01-19 22:05:58.513  INFO 2560 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-01-19 22:06:04.933  INFO 2560 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-19 22:06:04.933  INFO 2560 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-19 22:06:04.934  INFO 2560 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-19 22:06:05.175 ERROR 2560 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/ShopmeAdmin] threw exception [Handler dispatch failed; nested exception is java.lang.Error: Unresolved compilation problem: 
+	Syntax error, insert ";" to complete BlockStatements
+] with root cause
+
+java.lang.Error: Unresolved compilation problem: 
+	Syntax error, insert ";" to complete BlockStatements
+
+	at com.shopme.admin.user.controller.UserController.listFirstPage(UserController.java:41) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.servlet.resource.ResourceUrlEncodingFilter.doFilter(ResourceUrlEncodingFilter.java:67) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:136) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:93) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:219) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:213) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.6.1.jar:5.6.1]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2022-01-19 22:06:22.706  INFO 2560 --- [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:06:22.707  INFO 2560 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2022-01-19 22:06:22.716  INFO 2560 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2022-01-19 22:06:22.869  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Starting ShopmeBackEndApplication using Java 17.0.1 on LAPTOP-B51PEBFB with PID 2560 (C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\target\classes started by 35385 in C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd)
+2022-01-19 22:06:22.870 DEBUG 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-19 22:06:22.870  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : No active profile set, falling back to default profiles: default
+2022-01-19 22:06:23.171  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-19 22:06:23.188  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 2 JPA repository interfaces.
+2022-01-19 22:06:23.302  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-01-19 22:06:23.303  INFO 2560 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-19 22:06:23.303  INFO 2560 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-19 22:06:23.336  INFO 2560 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2022-01-19 22:06:23.336  INFO 2560 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 458 ms
+2022-01-19 22:06:23.348  WARN 2560 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [897B4876C358376890499E17EB3BDAD6]
+2022-01-19 22:06:23.379  INFO 2560 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-19 22:06:23.387  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2022-01-19 22:06:23.401  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2022-01-19 22:06:23.401  INFO 2560 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-19 22:06:23.466  INFO 2560 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-19 22:06:23.466  INFO 2560 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:06:23.488  WARN 2560 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-19 22:06:23.604  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2022-01-19 22:06:23.604  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-01-19 22:06:23.604  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-01-19 22:06:23.612  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79bf2614, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e313feb, org.springframework.security.web.header.HeaderWriterFilter@5c4a10cf, org.springframework.security.web.csrf.CsrfFilter@7e6053a0, org.springframework.security.web.authentication.logout.LogoutFilter@24467838, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@381c1fec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5933155b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5573aada, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6ed052c3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@374ede2b, org.springframework.security.web.session.SessionManagementFilter@32b0874e, org.springframework.security.web.access.ExceptionTranslationFilter@2a27a650, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@207dd850]
+2022-01-19 22:06:23.653  INFO 2560 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-01-19 22:06:23.969  INFO 2560 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-19 22:06:23.979  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2022-01-19 22:06:23.984  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Started ShopmeBackEndApplication in 1.186 seconds (JVM running for 636.28)
+2022-01-19 22:06:23.986  INFO 2560 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-01-19 22:06:34.056  INFO 2560 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-19 22:06:34.056  INFO 2560 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-19 22:06:34.057  INFO 2560 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-19 22:06:34.091 ERROR 2560 --- [http-nio-8080-exec-1] c.s.a.user.controller.UserController     : Listing users.
+2022-01-19 22:06:58.537  INFO 2560 --- [Thread-27] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:06:58.538  INFO 2560 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2022-01-19 22:06:58.542  INFO 2560 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2022-01-19 22:06:58.797  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Starting ShopmeBackEndApplication using Java 17.0.1 on LAPTOP-B51PEBFB with PID 2560 (C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\target\classes started by 35385 in C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd)
+2022-01-19 22:06:58.797 DEBUG 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-19 22:06:58.798  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : No active profile set, falling back to default profiles: default
+2022-01-19 22:06:59.126  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-19 22:06:59.147  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2022-01-19 22:06:59.263  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-01-19 22:06:59.264  INFO 2560 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-19 22:06:59.264  INFO 2560 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-19 22:06:59.295  INFO 2560 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2022-01-19 22:06:59.295  INFO 2560 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 494 ms
+2022-01-19 22:06:59.307  WARN 2560 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [0493941A5BA33C4F15C6AC92E7540DF2]
+2022-01-19 22:06:59.336  INFO 2560 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-19 22:06:59.344  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2022-01-19 22:06:59.365  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2022-01-19 22:06:59.366  INFO 2560 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-19 22:06:59.417  INFO 2560 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-19 22:06:59.418  INFO 2560 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:06:59.439  WARN 2560 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-19 22:06:59.560  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2022-01-19 22:06:59.560  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-01-19 22:06:59.560  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-01-19 22:06:59.568  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a0d7067, org.springframework.security.web.context.SecurityContextPersistenceFilter@6a4b33b6, org.springframework.security.web.header.HeaderWriterFilter@5c482c56, org.springframework.security.web.csrf.CsrfFilter@bfc6752, org.springframework.security.web.authentication.logout.LogoutFilter@7159d974, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2719cb2d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75d6bcdf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@686104af, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@79418ca0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@12a98e4d, org.springframework.security.web.session.SessionManagementFilter@265025f, org.springframework.security.web.access.ExceptionTranslationFilter@278710b0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@40a31bf0]
+2022-01-19 22:06:59.617  INFO 2560 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-01-19 22:06:59.963  INFO 2560 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-19 22:06:59.978  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2022-01-19 22:06:59.982  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Started ShopmeBackEndApplication in 1.253 seconds (JVM running for 672.279)
+2022-01-19 22:06:59.985  INFO 2560 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-01-19 22:07:08.712  INFO 2560 --- [Thread-31] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:07:08.713  INFO 2560 --- [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2022-01-19 22:07:08.718  INFO 2560 --- [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2022-01-19 22:07:08.811  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Starting ShopmeBackEndApplication using Java 17.0.1 on LAPTOP-B51PEBFB with PID 2560 (C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd\target\classes started by 35385 in C:\courses\Spring\ShopMeEcommerce\Shopme\ShopmeProject\ShopmeWebParent\ShopmeBackEnd)
+2022-01-19 22:07:08.811 DEBUG 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-19 22:07:08.812  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : No active profile set, falling back to default profiles: default
+2022-01-19 22:07:09.056  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-19 22:07:09.076  INFO 2560 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 2 JPA repository interfaces.
+2022-01-19 22:07:09.182  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-01-19 22:07:09.183  INFO 2560 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-19 22:07:09.183  INFO 2560 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-19 22:07:09.216  INFO 2560 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2022-01-19 22:07:09.216  INFO 2560 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 399 ms
+2022-01-19 22:07:09.252  INFO 2560 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-19 22:07:09.262  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2022-01-19 22:07:09.274  INFO 2560 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2022-01-19 22:07:09.275  INFO 2560 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-01-19 22:07:09.330  INFO 2560 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-19 22:07:09.330  INFO 2560 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:07:09.353  WARN 2560 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-19 22:07:09.473  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2022-01-19 22:07:09.473  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-01-19 22:07:09.473  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-01-19 22:07:09.479  INFO 2560 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4cda976, org.springframework.security.web.context.SecurityContextPersistenceFilter@31f52580, org.springframework.security.web.header.HeaderWriterFilter@311c31e3, org.springframework.security.web.csrf.CsrfFilter@3b4b1bbc, org.springframework.security.web.authentication.logout.LogoutFilter@272cb482, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@e55dcdc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3fea9165, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f292c52, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@12d015c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b19314e, org.springframework.security.web.session.SessionManagementFilter@52804297, org.springframework.security.web.access.ExceptionTranslationFilter@7d0e73e8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4f120332]
+2022-01-19 22:07:09.525  INFO 2560 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-01-19 22:07:09.857  INFO 2560 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-19 22:07:09.869  INFO 2560 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2022-01-19 22:07:09.881  INFO 2560 --- [restartedMain] c.shopme.admin.ShopmeBackEndApplication  : Started ShopmeBackEndApplication in 1.106 seconds (JVM running for 682.177)
+2022-01-19 22:07:09.883  INFO 2560 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-01-19 22:07:39.096  INFO 2560 --- [Thread-35] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-01-19 22:07:39.097  INFO 2560 --- [Thread-35] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2022-01-19 22:07:39.102  INFO 2560 --- [Thread-35] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.

@@ -10,6 +10,9 @@ import java.nio.file.StandardCopyOption;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class FileUploadUtil {
 	
 	public static void saveFile(String uploadDirectory, String fileName, MultipartFile multipartFile) throws IOException {
@@ -39,7 +42,7 @@ public class FileUploadUtil {
 				}
 			});
 		} catch (IOException e) {
-			System.out.println("Could not list files in directory");
+			log.error("Could not list files in directory");
 		}
 	}
 
