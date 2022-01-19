@@ -41,7 +41,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		//http.authorizeRequests().anyRequest().permitAll();
-		http.authorizeRequests().anyRequest().authenticated()
+		http.authorizeRequests()
+			.antMatchers("/users/**","/settings/**").hasAuthority("Admin")
+			.antMatchers("/categories/**").hasAnyAuthority("Admin","Editor")
+			.antMatchers("/brands/**").hasAnyAuthority("Admin","Editor")
+			.antMatchers("/products/**").hasAnyAuthority("Admin","Editor","Salesperson","Shipper")
+			.antMatchers("/questions/**").hasAnyAuthority("Admin","Assistant")
+			.antMatchers("/reviews/**").hasAnyAuthority("Admin","Assistant")
+			.antMatchers("/customers/**").hasAnyAuthority("Admin","Salesperson")
+			.antMatchers("/shipping/**").hasAnyAuthority("Admin","Salesperson")
+			.antMatchers("/orders/**").hasAnyAuthority("Admin","Salesperson","Shipper")
+			.antMatchers("/reports/**").hasAnyAuthority("Admin","Salesperson")
+			.antMatchers("/articles/**").hasAnyAuthority("Admin","Editor")
+			.antMatchers("/menus/**").hasAnyAuthority("Admin","Editor")
+			.anyRequest().authenticated()
 			.and().formLogin()
 				.loginPage("/login")
 				.usernameParameter("email")
