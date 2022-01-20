@@ -13,9 +13,19 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "categories")
 public class Category {
@@ -40,14 +50,15 @@ public class Category {
 	private Category parent;
 	
 	@OneToMany(mappedBy = "parent")
+	@Builder.Default
 	private Set<Category> children = new HashSet<>();
 
-	public Category(String alias, String name, String image, boolean enabled) {
-		super();
-		this.alias = alias;
-		this.name = name;
-		this.image = image;
-		this.enabled = enabled;
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", alias=" + alias + ", name=" + name + ", image=" + image + ", enabled="
+				+ enabled + "]";
 	}
+
+	
 	
 }
