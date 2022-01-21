@@ -12,7 +12,7 @@
 		<script type="text/javascript" th:src="@{/js/common.js}"></script>
 	</head>
 	<body>
-		<th  th:fragment="user_list_header(fieldName,columnName,removeTag)" th:remove="${removeTag}">
+		<th  th:fragment="list_header(fieldName,columnName,removeTag)" th:remove="${removeTag}">
 			<a class="text-white"
 				th:href="@{'/users/page/' + ${currentPage} + '/?sortField=' + ${fieldName} + '&sortDir=' + ${sortDir == 'asc' ? 'desc' : 'asc'} + ${keyword != null ? '&keyword=' + keyword : ''} }">
 					[[${columnName}]]
@@ -22,7 +22,7 @@
 		</th>
 		
 		
-		<a th:fragment="user_page_link(pageNum,linkText)"  class="page-link" 
+		<a th:fragment="page_link(pageNum,linkText)"  class="page-link" 
 			th:href="@{'/users/page/' + ${pageNum} + '/?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">[[${linkText}]]</a>
 		
 		<div th:fragment="page_footer()" class="text-center m-3">

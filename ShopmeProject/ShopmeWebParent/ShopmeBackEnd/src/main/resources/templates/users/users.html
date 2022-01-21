@@ -41,16 +41,16 @@
 				<table class="table table-bordered table-striped table-hover table-responsive-xl">
 					<thead class="thead-dark">
 						<th class="hideable-column">
-							<th th:replace="fragments :: user_list_header('id', 'User ID','tag')"></th>
+							<th th:replace="fragments :: list_header('id', 'User ID','tag')"></th>
 						</th>
 						<th>Photo</th>
 						<th class="hideable-column">
-							<th th:replace="fragments :: user_list_header('email', 'Email','tag')"></th>
+							<th th:replace="fragments :: list_header('email', 'Email','tag')"></th>
 						</th>
-						<th th:replace="fragments :: user_list_header('firstName', 'First Name','none')"></th>
-						<th th:replace="fragments :: user_list_header('lastName', 'Last Name','none')"></th>
+						<th th:replace="fragments :: list_header('firstName', 'First Name','none')"></th>
+						<th th:replace="fragments :: list_header('lastName', 'Last Name','none')"></th>
 						<th>Roles</th>
-						<th th:replace="fragments :: user_list_header('enabled', 'Enabled','none')"></th>
+						<th th:replace="fragments :: list_header('enabled', 'Enabled','none')"></th>
 						<th></th>
 					</thead>
 					<tbody>	
@@ -121,24 +121,24 @@
 				  <ul class="pagination justify-content-center flex-wrap">
 				  	
 				  	<li th:class="${currentPage == 1 ? 'page-item disabled' : 'page-item'}">
-				  		<a th:replace="fragments :: user_page_link(1,'First')"></a>
+				  		<a th:replace="fragments :: page_link(1,'First')"></a>
 				  	</li>
 				    
 				    <li th:class="${currentPage == 1 ? 'page-item disabled' : 'page-item'}">
-				    	<a th:replace="fragments :: user_page_link(${currentPage - 1},'Previous')"></a>
+				    	<a th:replace="fragments :: page_link(${currentPage - 1},'Previous')"></a>
 				    </li>
 				    
 				    <li th:class="${currentPage != i} ? 'page-item' : 'page-item active'" 
 				    	th:each="i : ${#numbers.sequence(1,totalPages)}">
-				    	<a th:replace="fragments :: user_page_link(${i},${i})"></a>
+				    	<a th:replace="fragments :: page_link(${i},${i})"></a>
 				    </li>
 				    
 				    <li th:class="${currentPage == totalPages ? 'page-item disabled' : 'page-item'}">
-				    	<a th:replace="fragments :: user_page_link(${currentPage + 1},'Next')"></a>
+				    	<a th:replace="fragments :: page_link(${currentPage + 1},'Next')"></a>
 				    </li>
 				    
 				    <li th:class="${currentPage == totalPages ? 'page-item disabled' : 'page-item'}">
-				    	<a th:replace="fragments :: user_page_link(${totalPages},'Last')"></a>
+				    	<a th:replace="fragments :: page_link(${totalPages},'Last')"></a>
 				    	</li>
 				  </ul>
 				</nav>

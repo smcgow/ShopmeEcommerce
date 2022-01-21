@@ -15,11 +15,9 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
@@ -57,6 +55,10 @@ public class Category {
 	public String toString() {
 		return "Category [id=" + id + ", alias=" + alias + ", name=" + name + ", image=" + image + ", enabled="
 				+ enabled + "]";
+	}
+	
+	public String getImagePath() {
+		return "/images/default-user.png";
 	}
 
 	
