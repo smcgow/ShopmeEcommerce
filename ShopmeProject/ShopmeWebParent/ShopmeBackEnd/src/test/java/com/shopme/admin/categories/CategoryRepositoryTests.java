@@ -16,7 +16,7 @@ import com.shopme.common.entity.Category;
 
 import lombok.extern.slf4j.Slf4j;
 
-@DataJpaTest(showSql = false)
+@DataJpaTest(showSql = true)
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
 @Slf4j
@@ -163,6 +163,12 @@ public class CategoryRepositoryTests {
 			}
 		});
 		
+	}
+	
+	@Test
+	public void testfindByNameLikeAndAliasLike() {
+		List<Category> categories = categoryRepository.findByNameLikeOrAliasLike("%omp%", "%omp%");
+		assertThat(categories.size()).isGreaterThan(0);
 	}
 
 	private void recurseChildren(Category category, int level) {
