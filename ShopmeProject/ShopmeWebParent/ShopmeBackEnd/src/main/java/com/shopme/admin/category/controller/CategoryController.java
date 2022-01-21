@@ -29,5 +29,14 @@ public class CategoryController {
 		model.addAttribute("keyword", keyword);
 		return "categories/categories";
 	}
+	
+	@GetMapping("/categories/new")
+	public String newCategory(Model model) {
+		List<Category> listCategories = categoryService.listCategoriesinHierArchicalForm();
+		model.addAttribute("listCategories", listCategories);
+		model.addAttribute("category", new Category());
+		model.addAttribute("pageTitle", "Create New Category");
+		return "categories/category_form";
+	}
 
 }

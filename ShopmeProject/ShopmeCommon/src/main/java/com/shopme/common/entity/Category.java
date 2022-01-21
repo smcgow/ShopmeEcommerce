@@ -58,7 +58,7 @@ public class Category {
 	}
 	
 	public String getImagePath() {
-		return "/images/default-user.png";
+		return "/images/image-thumbnail.png";
 	}
 
 	
