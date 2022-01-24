@@ -64,6 +64,15 @@ public class Category {
 		return "/category-images/" + this.getId() + "/" + this.getImage();
 	}
 
+	public Category copy() {
+		return Category.builder()
+				.alias(this.getAlias())
+				.enabled(this.isEnabled())
+				.id(this.getId())
+				.image(this.getImage())
+				.name(this.getName())
+				.build();
+	}
 	
 	
 }
