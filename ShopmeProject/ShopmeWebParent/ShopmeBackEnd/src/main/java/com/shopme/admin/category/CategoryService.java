@@ -46,5 +46,9 @@ public class CategoryService {
 			recurseChildren(child, newLevel, hierarchicalCategories);
 		});
 	}
+	
+	public Category save(Category category) {
+		return categoryRepository.save(category);
+	}
 
 }

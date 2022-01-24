@@ -58,7 +58,10 @@ public class Category {
 	}
 	
 	public String getImagePath() {
-		return "/images/image-thumbnail.png";
+		if(this.getImage() == null || this.getImage().isBlank()) {
+			return "/images/image-thumbnail.png";
+		}
+		return "/category-images/" + this.getId() + "/" + this.getImage();
 	}
 
 	
