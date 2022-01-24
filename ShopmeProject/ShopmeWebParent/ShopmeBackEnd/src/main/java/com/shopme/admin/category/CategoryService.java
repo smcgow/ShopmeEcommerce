@@ -2,6 +2,9 @@ package com.shopme.admin.category;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+
+import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,21 +18,32 @@ public class CategoryService {
 	CategoryRepository categoryRepository;
 	
 	public List<Category> listAll(){
-		return categoryRepository.findAll();
+		return listCategoriesinHierArchicalForm();
 	}
 	
 	public List<Category> searchByKeyword(String keyword){
 		return categoryRepository.findByNameLikeOrAliasLike("%" + keyword +  "%", "%" + keyword +  "%");
 	}
 	
+	public List<Category> listRootCategories(){
+		return categoryRepository.findRootCategories();
+	}
+	
+	public Category getCategoryById(Integer categoryId) throws CategoryNotFoundException {
+		try {
+			return categoryRepository.findById(categoryId).get();
+		}
+		catch(NoSuchElementException enfe) {
+			throw new CategoryNotFoundException(enfe.getMessage(),enfe);
+		}
+	}
+	
 	public List<Category> listCategoriesinHierArchicalForm(){
 		List<Category> hierarchicalCategories = new ArrayList<>();
-		List<Category> categories = categoryRepository.findAll();
+		List<Category> categories = categoryRepository.findRootCategories();
 		categories.forEach(category -> {
-			if(category.getParent() == null) {
-				hierarchicalCategories.add(category);
-				recurseChildren(category,0,hierarchicalCategories);
-			}
+			hierarchicalCategories.add(category);
+			recurseChildren(category,0,hierarchicalCategories);
 		});
 		return hierarchicalCategories;
 	}
@@ -41,10 +55,15 @@ public class CategoryService {
 			for(int i = 0; i < newLevel; i ++) {
 				prefix += "--";
 			}
-			child.setName(prefix + " " + child.getName());
-			hierarchicalCategories.add(child);
+			Category subCategory = child.copy();
+			subCategory.setName(prefix + " " + subCategory.getName());
+			hierarchicalCategories.add(subCategory);
 			recurseChildren(child, newLevel, hierarchicalCategories);
 		});
+	}
+	
+	public Category save(Category category) {
+		return categoryRepository.save(category);
 	}
 
 }

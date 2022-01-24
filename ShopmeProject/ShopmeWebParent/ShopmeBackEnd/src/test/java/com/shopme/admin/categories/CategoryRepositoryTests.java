@@ -182,6 +182,11 @@ public class CategoryRepositoryTests {
 		});
 	}
 	
+	@Test
+	public void testFindRootCategories() {
+		List<Category> rootCategories = categoryRepository.findRootCategories();
+		rootCategories.forEach(category -> System.out.println(category));
+	}
 	
 
 }

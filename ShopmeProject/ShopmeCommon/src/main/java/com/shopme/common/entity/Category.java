@@ -58,9 +58,21 @@ public class Category {
 	}
 	
 	public String getImagePath() {
-		return "/images/image-thumbnail.png";
+		if(this.getImage() == null || this.getImage().isBlank()) {
+			return "/images/image-thumbnail.png";
+		}
+		return "/category-images/" + this.getId() + "/" + this.getImage();
 	}
 
+	public Category copy() {
+		return Category.builder()
+				.alias(this.getAlias())
+				.enabled(this.isEnabled())
+				.id(this.getId())
+				.image(this.getImage())
+				.name(this.getName())
+				.build();
+	}
 	
 	
 }
