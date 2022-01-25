@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import javax.persistence.EntityNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,6 +62,31 @@ public class CategoryService {
 	
 	public Category save(Category category) {
 		return categoryRepository.save(category);
+	}
+	
+	public String checkUnique(Integer id, String name, String alias) {
+		
+		boolean isCreatingNew = id == null || id == 0;
+		
+		Category categoryByName = categoryRepository.findByName(name);
+		Category categoryByAlias = categoryRepository.findByAlias(alias);
+		
+		if(isCreatingNew) {
+			if(categoryByName != null) {
+				return "DuplicateName";
+			}else if(categoryByAlias != null) {
+				return "DuplicateAlias";
+			}else {
+				return "OK";
+			}
+		}else if(categoryByName != null && categoryByName.getId() != id) {
+			return "DuplicateName";
+		}else if(categoryByAlias != null && categoryByAlias.getId() != id) {
+			return "DuplicateAlias";
+		}else {
+			return "OK";
+		}
+	
 	}
 
 }

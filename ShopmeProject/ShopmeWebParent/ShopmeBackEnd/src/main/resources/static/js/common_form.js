@@ -26,3 +26,9 @@ function showImageThumbnail(fileInput){
 	}
 	fileReader.readAsDataURL(file);
 }
+
+function showModalDialog(title, body){
+	$("#modalTitle").text(title)
+	$("#modalBody").text(body)
+	$("#modalDialog").modal()
+}

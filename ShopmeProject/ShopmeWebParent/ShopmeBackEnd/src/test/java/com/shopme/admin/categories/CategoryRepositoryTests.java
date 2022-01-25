@@ -188,5 +188,20 @@ public class CategoryRepositoryTests {
 		rootCategories.forEach(category -> System.out.println(category));
 	}
 	
+	@Test
+	public void testFindByName() {
+		String name = "Computers";
+		Category category = categoryRepository.findByName(name);
+		assertThat(category).isNotNull();
+		assertThat(category.getName()).isEqualTo(name);
+	}
+	
+	@Test
+	public void testFindByAlias() {
+		String alias = "elec";
+		Category category = categoryRepository.findByAlias(alias);
+		assertThat(category).isNotNull();
+		assertThat(category.getAlias()).isEqualTo(alias);
+	}
 
 }
