@@ -40,15 +40,15 @@
 			<div class="full-details">
 				<table class="table table-bordered table-striped table-hover table-responsive-xl">
 					<thead class="thead-dark">
-						<th class="hideable-column">
-							<th th:replace="fragments :: list_header('id', 'ID','tag')"></th>
-						</th>
+						<th>Id</th>
 						<th>Category Image</th>
-						<th class="hideable-column">
-							<th th:replace="fragments :: list_header('name', 'Category Name','tag')"></th>
+						<th>
+							<a th:if="${sortDir} == 'asc'" th:href="@{'/categories?sortDir=desc'}" class="text-white">Category Name</a>
+							<a th:if="${sortDir} == 'desc'" th:href="@{'/categories?sortDir=asc'}" class="text-white">Category Name</a>
+							<span th:class="${sortDir} == 'asc' ? 'fas fa-sort-down' : 'fas fa-sort-up'"></span>
 						</th>
-						<th th:replace="fragments :: list_header('alias', 'Alias','none')"></th>
-						<th th:replace="fragments :: list_header('enabled', 'Enabled','none')"></th>
+						<th>Alias</th>
+						<th>Enabled</th>
 						<th></th>
 					</thead>
 					<tbody>	

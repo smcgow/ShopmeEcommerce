@@ -26,21 +26,27 @@ public class CategoryController {
 	CategoryService categoryService;
 	
 	@GetMapping("/categories")
-	public String listCategories(@RequestParam(required = false) String keyword, Model model) {
+	public String listCategories(@RequestParam(name = "keyword", required = false) String keyword, 
+								@RequestParam(name = "sortDir", required = false) String sortDir, 
+								Model model) {
 		List<Category> categories;
+		if(sortDir == null) {
+			sortDir = "asc";
+		}
 		if(keyword == null) {
-			categories = categoryService.listAll();
+			categories = categoryService.listAll(sortDir);
 		}else {
 			categories = categoryService.searchByKeyword(keyword);
 		}
 		model.addAttribute("categories", categories);
 		model.addAttribute("keyword", keyword);
+		model.addAttribute("sortDir", sortDir);
 		return "categories/categories";
 	}
 	
 	@GetMapping("/categories/new")
 	public String newCategory(Model model) {
-		List<Category> listCategories = categoryService.listCategoriesinHierArchicalForm();
+		List<Category> listCategories = categoryService.listCategoriesinHierArchicalForm("asc");
 		model.addAttribute("listCategories", listCategories);
 		model.addAttribute("category", new Category());
 		model.addAttribute("pageTitle", "Create New Category");
@@ -49,7 +55,7 @@ public class CategoryController {
 	
 	@GetMapping("/categories/edit/{categoryId}")
 	public String editCategory(@PathVariable("categoryId") Integer categoryId, Model model,RedirectAttributes redirectAttributes) {
-		List<Category> listCategories = categoryService.listCategoriesinHierArchicalForm();
+		List<Category> listCategories = categoryService.listCategoriesinHierArchicalForm("asc");
 		Category category;
 		try {
 			category = categoryService.getCategoryById(categoryId);
