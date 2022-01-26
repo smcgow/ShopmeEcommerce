@@ -69,6 +69,28 @@ public class CategoryController {
 		}
 	}
 	
+	
+	@GetMapping("/categories/{categoryId}/enabled/{enableDisable}")
+	public String enableDisableCategories(@PathVariable("categoryId") Integer categoryId, 
+										@PathVariable("enableDisable") boolean enableDisable,
+										Model model,
+										RedirectAttributes redirectAttributes) {
+		
+		try {
+			Category category = categoryService.getCategoryById(categoryId);
+			categoryService.enableDisableCategory(enableDisable, category.getId());
+			if(enableDisable) {
+				redirectAttributes.addFlashAttribute("message", "The category has been enabled");
+			}else {
+				redirectAttributes.addFlashAttribute("message", "The category has been disabled");
+			}
+			return "redirect:/categories";
+		} catch (CategoryNotFoundException e1) {
+			redirectAttributes.addFlashAttribute("message", "Could not find the category with ID " + categoryId);
+			return "redirect:/categories";
+		}
+	}
+	
 	@PostMapping("/categories/save")
 	public String saveCategory(Category category, @RequestParam("fileImage") MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
 		

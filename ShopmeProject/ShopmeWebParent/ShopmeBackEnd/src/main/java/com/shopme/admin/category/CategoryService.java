@@ -8,6 +8,8 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Service;
 import com.shopme.common.entity.Category;
 
 @Service
+@Transactional
 public class CategoryService {
 	
 	@Autowired
@@ -59,6 +62,10 @@ public class CategoryService {
 			recurseChildren(category,0,hierarchicalCategories,sortDir);
 		});
 		return hierarchicalCategories;
+	}
+	
+	public void enableDisableCategory(boolean enabled, Integer categoryId) {
+		categoryRepository.enableDisableCategory(enabled, categoryId);
 	}
 	
 	private void recurseChildren(Category category, int level, List<Category> hierarchicalCategories, String sortDir) {
