@@ -3,6 +3,8 @@ package com.shopme.admin.category.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +18,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.shopme.admin.FileUploadUtil;
 import com.shopme.admin.category.CategoryNotFoundException;
+import com.shopme.admin.category.CategoryPageInfo;
 import com.shopme.admin.category.CategoryService;
+import com.shopme.admin.category.export.CategoryCsvExporter;
 import com.shopme.common.entity.Category;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 public class CategoryController {
 	
@@ -26,21 +33,54 @@ public class CategoryController {
 	CategoryService categoryService;
 	
 	@GetMapping("/categories")
-	public String listCategories(@RequestParam(required = false) String keyword, Model model) {
+	public String listCategories(@RequestParam(name = "keyword", required = false) String keyword, 
+								@RequestParam(name = "sortDir", required = false) String sortDir, 
+								Model model) {
+		
+		
+		return listCategoriesByPage(keyword, sortDir, 1, model);
+	}
+	
+	@GetMapping("/categories/page/{pageNumber}")
+	public String listCategoriesByPage(@RequestParam(name = "keyword", required = false) String keyword, 
+								@RequestParam(name = "sortDir", required = false) String sortDir, 
+								@PathVariable(name = "pageNumber") int pageNumber, 
+								Model model) {
+		
 		List<Category> categories;
-		if(keyword == null) {
-			categories = categoryService.listAll();
-		}else {
-			categories = categoryService.searchByKeyword(keyword);
+		CategoryPageInfo categoryPageInfo = new CategoryPageInfo();
+		if(sortDir == null) {
+			sortDir = "asc";
 		}
+		
+		if(keyword == null || keyword.isEmpty()) {
+			categories = categoryService.listByPage(sortDir,pageNumber, categoryPageInfo);
+		}else {
+			categories = categoryService.searchByKeyword(pageNumber, keyword, sortDir, categoryPageInfo);
+		}
+		
+		int startCount = ((pageNumber - 1) * CategoryService.CATEGORIES_PER_PAGE) + 1;
+		int endCount = startCount + CategoryService.CATEGORIES_PER_PAGE - 1;
+		if(endCount > categoryPageInfo.getTotalElements()) {
+			endCount = (int) categoryPageInfo.getTotalElements();
+		}
+		
+		model.addAttribute("currentPage",pageNumber);
+		model.addAttribute("startCount",startCount);
+		model.addAttribute("sortField", "name");
+		model.addAttribute("sortDir", sortDir);
+		model.addAttribute("endCount",endCount);
+		model.addAttribute("totalItems", categoryPageInfo.getTotalElements());
+		model.addAttribute("totalPages", categoryPageInfo.getTotalPages());
 		model.addAttribute("categories", categories);
 		model.addAttribute("keyword", keyword);
+		model.addAttribute("sortDir", sortDir);
 		return "categories/categories";
 	}
 	
 	@GetMapping("/categories/new")
 	public String newCategory(Model model) {
-		List<Category> listCategories = categoryService.listCategoriesinHierArchicalForm();
+		List<Category> listCategories = categoryService.listAll("asc");
 		model.addAttribute("listCategories", listCategories);
 		model.addAttribute("category", new Category());
 		model.addAttribute("pageTitle", "Create New Category");
@@ -49,7 +89,7 @@ public class CategoryController {
 	
 	@GetMapping("/categories/edit/{categoryId}")
 	public String editCategory(@PathVariable("categoryId") Integer categoryId, Model model,RedirectAttributes redirectAttributes) {
-		List<Category> listCategories = categoryService.listCategoriesinHierArchicalForm();
+		List<Category> listCategories = categoryService.listAll("asc");
 		Category category;
 		try {
 			category = categoryService.getCategoryById(categoryId);
@@ -59,6 +99,28 @@ public class CategoryController {
 			return "categories/category_form";
 		} catch (CategoryNotFoundException e) {
 			redirectAttributes.addFlashAttribute("message", "Could not find category with ID " + categoryId);
+			return "redirect:/categories";
+		}
+	}
+	
+	
+	@GetMapping("/categories/{categoryId}/enabled/{enableDisable}")
+	public String enableDisableCategories(@PathVariable("categoryId") Integer categoryId, 
+										@PathVariable("enableDisable") boolean enableDisable,
+										Model model,
+										RedirectAttributes redirectAttributes) {
+		
+		try {
+			Category category = categoryService.getCategoryById(categoryId);
+			categoryService.enableDisableCategory(enableDisable, category.getId());
+			if(enableDisable) {
+				redirectAttributes.addFlashAttribute("message", "The category has been enabled");
+			}else {
+				redirectAttributes.addFlashAttribute("message", "The category has been disabled");
+			}
+			return "redirect:/categories";
+		} catch (CategoryNotFoundException e1) {
+			redirectAttributes.addFlashAttribute("message", "Could not find the category with ID " + categoryId);
 			return "redirect:/categories";
 		}
 	}
@@ -79,6 +141,34 @@ public class CategoryController {
 		redirectAttributes.addFlashAttribute("message", "The category was saved successfully.");
 		
 		return "redirect:/categories";
+	}
+	
+	@GetMapping("/categories/delete/{categoryId}")
+	public String deleteCategoryById(@PathVariable("categoryId") Integer categoryId,
+										Model model,
+										RedirectAttributes redirectAttributes) {
+		try {
+			categoryService.delete(categoryId);
+			String directory = "../category-images/" + categoryId;
+			FileUploadUtil.removeDirectory(directory);
+			
+			redirectAttributes.addFlashAttribute("message", "The category ID:" + categoryId + " has been successfully deleted");
+		} catch (CategoryNotFoundException e1) {
+			redirectAttributes.addFlashAttribute("message", e1.getMessage());
+		}
+		return "redirect:/categories";
+	}
+	
+	@GetMapping("/categories/export/csv")
+	public void exportToCsv(HttpServletResponse httpServletResponse) {
+		try {
+			List<Category> listAll = categoryService.listAll("asc");
+			CategoryCsvExporter categoryCsvExporter = new CategoryCsvExporter();
+			categoryCsvExporter.export(listAll, httpServletResponse);
+			
+		} catch (IOException e1) {
+			log.error("An exception occurred downloading the csv",e1);
+		}
 	}
 
 }

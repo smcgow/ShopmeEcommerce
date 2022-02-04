@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Rollback;
 
 import com.shopme.admin.category.CategoryRepository;
@@ -167,8 +170,9 @@ public class CategoryRepositoryTests {
 	
 	@Test
 	public void testfindByNameLikeAndAliasLike() {
-		List<Category> categories = categoryRepository.findByNameLikeOrAliasLike("%omp%", "%omp%");
-		assertThat(categories.size()).isGreaterThan(0);
+		PageRequest pageRequest = PageRequest.of(0, 4);
+		Page<Category> categories = categoryRepository.findByNameLikeOrAliasLike("%omp%", "%omp%", pageRequest);
+		assertThat(categories.getContent().size()).isGreaterThan(0);
 	}
 
 	private void recurseChildren(Category category, int level) {
@@ -184,9 +188,26 @@ public class CategoryRepositoryTests {
 	
 	@Test
 	public void testFindRootCategories() {
-		List<Category> rootCategories = categoryRepository.findRootCategories();
+		List<Category> rootCategories = categoryRepository.findRootCategories(Sort.by("name").ascending());
 		rootCategories.forEach(category -> System.out.println(category));
 	}
 	
+	@Test
+	public void testFindByName() {
+		String name = "Computers";
+		Category category = categoryRepository.findByName(name);
+		assertThat(category).isNotNull();
+		assertThat(category.getName()).isEqualTo(name);
+	}
+	
+	@Test
+	public void testFindByAlias() {
+		String alias = "elec";
+		Category category = categoryRepository.findByAlias(alias);
+		assertThat(category).isNotNull();
+		assertThat(category.getAlias()).isEqualTo(alias);
+	}
+	
+
 
 }
