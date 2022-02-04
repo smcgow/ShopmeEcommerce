@@ -62,16 +62,10 @@
 							<td>[[${category.alias}]]</td>
 							
 							<td>
-								<a th:if="${category.enabled == true}" class="fas fa-check-circle fa-2x icon-green" 
-										th:href="@{'/categories/' + ${category.id} + '/enabled/false'}"
-										title="Enable this category"></a>
-								<a th:if="${category.enabled == false}" class="fas fa-circle fa-2x icon-dark" 
-									th:href="@{'/categories/' + ${category.id} + '/enabled/true'}"
-									title="Disable this category"></a>
+								<div th:replace="fragments :: category_status()"></div>
 							</td>
 							<td>
-								<a class="fas fa-edit fa-2x icon-green" th:href="@{'/categories/edit/' + ${category.id}}" title="Edit this category"></a>
-						    	<a class="fas fa-trash fa-2x icon-dark link-delete" th:categoryId="${category.id}" th:href="@{'/categories/delete/' + ${category.id}}" title="Delete this category"></a>
+								<div th:replace="fragments :: category_actions()"></div>
 						    </td>
 						</tr>
 					</tbody>
@@ -80,50 +74,33 @@
 			
 			
 			
-			<div class="modal fade text-center" id="confirmDialog">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h4 class="modal-title">Delete Confirmation</h4>
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
-						
-						<div class="modal-body">
-							<span id="confirmBody"></span>
-						</div>
-						
-						<div class="modal-footer">
-							<a class="btn btn-primary" id="confirmYes" href="">Yes</a>
-							<button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-						</div>
-						
-					</div>
-				</div>
-			</div>
+			<div th:replace="modal_fragments :: confirm_delete_dialog()"></div>
 			
 			<div th:replace="fragments :: page_footer()"></div>
 			
 			
 			
 		</div>
+		
 		<script type="text/javascript">
 			$(document).ready(function(){
-				
+			
+				moduleUrl = "[[@{/categories}]]"
+					
 				$(".link-delete").on("click", function(event){
 					event.preventDefault();
-					let link = $(this)
-					let categoryId = link.attr("categoryId")
-					$("#confirmBody").text("Are you sure you want to delete category of ID " + categoryId)
-					$("#confirmYes").attr("href", link.attr("href"))
-					$("#confirmDialog").modal()
+					showDeleteConfirmationModal($(this),'category')
 				})
 				
 				$("#clearButton").on('click', function(){
-					window.location = "[[@{/categories}]]"
+					clearFilter()
 				})
 				
 			})
+		</script>	
+		<script type="text/javascript" th:src="@{js/common_list.js}"></script>
+			
 		
-		</script>
+		
 	</body>
 </html>

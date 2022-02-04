@@ -129,5 +129,13 @@ public class CategoryService {
 		}
 	
 	}
+	
+	public void delete(Integer id) throws CategoryNotFoundException {
+		Long countById = categoryRepository.countById(id);
+		if(countById == null || countById == 0) {
+			throw new CategoryNotFoundException("The category of ID " + id + " could not be found");
+		}
+		categoryRepository.deleteById(id);
+	}
 
 }
