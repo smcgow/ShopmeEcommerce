@@ -36,8 +36,12 @@ public class CategoryService {
 		return listCategoriesinHierArchicalForm(sortDir,0, null);
 	}
 	
-	public List<Category> searchByKeyword(String keyword){
-		return categoryRepository.findByNameLikeOrAliasLike("%" + keyword +  "%", "%" + keyword +  "%");
+	public List<Category> searchByKeyword(int pageNumber, String keyword,String sortDir, CategoryPageInfo categoryPageInfo){
+		PageRequest pageRequest = PageRequest.of(pageNumber-1, CATEGORIES_PER_PAGE, getSort(sortDir));
+		Page<Category> pageResponse = categoryRepository.findByNameLikeOrAliasLike("%" + keyword +  "%", "%" + keyword +  "%",pageRequest);
+		categoryPageInfo.setTotalElements(pageResponse.getTotalElements());
+		categoryPageInfo.setTotalPages(pageResponse.getTotalPages());
+		return pageResponse.getContent();
 	}
 	
 	public List<Category> listRootCategories(Sort sort){
@@ -55,6 +59,26 @@ public class CategoryService {
 	
 	public List<Category> listCategoriesinHierArchicalForm(String sortDir, int pagenum, CategoryPageInfo categoryPageInfo){
 		
+		List<Category> hierarchicalCategories = new ArrayList<>();
+		List<Category> categories;
+		if(pagenum != 0) {
+			Pageable pageable = PageRequest.of(pagenum - 1, CATEGORIES_PER_PAGE, getSort(sortDir));
+			Page<Category> pageCategories = categoryRepository.findRootCategories(pageable);
+			categoryPageInfo.setTotalElements(pageCategories.getTotalElements());
+			categoryPageInfo.setTotalPages(pageCategories.getTotalPages());
+			categories = pageCategories.getContent();
+		}else {
+			categories = categoryRepository.findRootCategories(getSort(sortDir));
+		}
+		
+		categories.forEach(category -> {
+			hierarchicalCategories.add(category);
+			recurseChildren(category,0,hierarchicalCategories,sortDir);
+		});
+		return hierarchicalCategories;
+	}
+
+	private Sort getSort(String sortDir) {
 		Sort sort;
 		if(sortDir.equals("asc")) {
 			sort = Sort.by("name").ascending();
@@ -63,25 +87,7 @@ public class CategoryService {
 		}else {
 			sort = Sort.by("name").ascending();
 		}
-		
-		
-		List<Category> hierarchicalCategories = new ArrayList<>();
-		List<Category> categories;
-		if(pagenum != 0) {
-			Pageable pageable = PageRequest.of(pagenum - 1, CATEGORIES_PER_PAGE, sort);
-			Page<Category> pageCategories = categoryRepository.findRootCategories(pageable);
-			categoryPageInfo.setTotalElements(pageCategories.getTotalElements());
-			categoryPageInfo.setTotalPages(pageCategories.getTotalPages());
-			categories = pageCategories.getContent();
-		}else {
-			categories = categoryRepository.findRootCategories(sort);
-		}
-		
-		categories.forEach(category -> {
-			hierarchicalCategories.add(category);
-			recurseChildren(category,0,hierarchicalCategories,sortDir);
-		});
-		return hierarchicalCategories;
+		return sort;
 	}
 	
 	public void enableDisableCategory(boolean enabled, Integer categoryId) {

@@ -43,8 +43,8 @@
 						<th>Id</th>
 						<th>Category Image</th>
 						<th>
-							<a th:if="${sortDir} == 'asc'" th:href="@{'/categories/page/' + ${currentPage} + '?sortDir=desc'}" class="text-white">Category Name</a>
-							<a th:if="${sortDir} == 'desc'" th:href="@{'/categories/page/' + ${currentPage} + '?sortDir=asc'}" class="text-white">Category Name</a>
+							<a th:if="${sortDir} == 'asc'" th:href="@{'/categories/page/' + ${currentPage} + '?sortDir=desc' + ${keyword != null ? '&keyword=' + keyword : ''} }" class="text-white">Category Name</a>
+							<a th:if="${sortDir} == 'desc'" th:href="@{'/categories/page/' + ${currentPage} + '?sortDir=asc' + ${keyword != null ? '&keyword=' + keyword : ''} }" class="text-white">Category Name</a>
 							<span th:class="${sortDir} == 'asc' ? 'fas fa-sort-down' : 'fas fa-sort-up'"></span>
 						</th>
 						<th>Alias</th>
@@ -72,8 +72,10 @@
 				</table>
 			</div>
 			
-			
-			<div th:replace="fragments :: pagination('categories', 'top level categories')"></div>
+			<div th:if="${keyword != null}" class="text-center">
+				<span>The search results are not shown in hierarchical form</span>
+			</div>
+			<div th:replace="fragments :: pagination('categories', ${keyword == null ? 'top-level categories' : 'categories'})"></div>
 			
 			<div th:replace="modal_fragments :: confirm_delete_dialog()"></div>
 			
@@ -99,7 +101,7 @@
 				
 			})
 		</script>	
-		<script type="text/javascript" th:src="@{js/common_list.js}"></script>
+		<script type="text/javascript" th:src="@{/js/common_list.js}"></script>
 			
 		
 		

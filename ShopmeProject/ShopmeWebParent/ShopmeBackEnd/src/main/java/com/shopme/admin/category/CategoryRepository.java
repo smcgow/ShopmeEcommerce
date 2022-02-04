@@ -20,7 +20,7 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
 	
 	Long countById(Integer id);
 	
-	List<Category> findByNameLikeOrAliasLike(String name, String alias);
+	Page<Category> findByNameLikeOrAliasLike(String name, String alias, Pageable pageable);
 	
 	@Query("SELECT c FROM Category c WHERE c.parent IS NULL")
 	List<Category> findRootCategories(Sort sort);

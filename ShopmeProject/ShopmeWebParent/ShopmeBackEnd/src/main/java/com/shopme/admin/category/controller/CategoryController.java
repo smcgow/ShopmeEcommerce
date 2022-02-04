@@ -47,10 +47,10 @@ public class CategoryController {
 			sortDir = "asc";
 		}
 		
-		if(keyword == null) {
+		if(keyword == null || keyword.isEmpty()) {
 			categories = categoryService.listByPage(sortDir,pageNumber, categoryPageInfo);
 		}else {
-			categories = categoryService.searchByKeyword(keyword);
+			categories = categoryService.searchByKeyword(pageNumber, keyword, sortDir, categoryPageInfo);
 		}
 		
 		int startCount = ((pageNumber - 1) * CategoryService.CATEGORIES_PER_PAGE) + 1;
