@@ -3,6 +3,8 @@ package com.shopme.admin.category.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,8 +20,12 @@ import com.shopme.admin.FileUploadUtil;
 import com.shopme.admin.category.CategoryNotFoundException;
 import com.shopme.admin.category.CategoryPageInfo;
 import com.shopme.admin.category.CategoryService;
+import com.shopme.admin.category.export.CategoryCsvExporter;
 import com.shopme.common.entity.Category;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 public class CategoryController {
 	
@@ -151,6 +157,18 @@ public class CategoryController {
 			redirectAttributes.addFlashAttribute("message", e1.getMessage());
 		}
 		return "redirect:/categories";
+	}
+	
+	@GetMapping("/categories/export/csv")
+	public void exportToCsv(HttpServletResponse httpServletResponse) {
+		try {
+			List<Category> listAll = categoryService.listAll("asc");
+			CategoryCsvExporter categoryCsvExporter = new CategoryCsvExporter();
+			categoryCsvExporter.export(listAll, httpServletResponse);
+			
+		} catch (IOException e1) {
+			log.error("An exception occurred downloading the csv",e1);
+		}
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.shopme.admin.user.export;
+package com.shopme.admin.category.export;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,27 +10,32 @@ import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
 
 import com.shopme.admin.AbstractExporter;
-import com.shopme.common.entity.User;
+import com.shopme.common.entity.Category;
 
-public class UserCsvExporter extends AbstractExporter<User> {
-	
-	public void export(List<User> users, HttpServletResponse response) throws IOException {
+public class CategoryCsvExporter extends AbstractExporter<Category>{
+
+	@Override
+	public void export(List<Category> objects, HttpServletResponse response) throws IOException {
 		
-		super.setResponseHeader("text/csv", ".csv","users", response);
+		super.setResponseHeader("text/csv", ".csv","categories", response);
 		
 		ICsvBeanWriter csvBeanWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
-		String[] header = {"User Id","Email","First Name","Last Name","Roles","Enabled"};
-		String[] fieldMappings = {"id","email","firstName","lastName","roles","enabled"};
+		String[] header = {"Id","Name"};
+		String[] fieldMappings = {"id","name"};
 		csvBeanWriter.writeHeader(header);
-		users.forEach(user -> {
+		objects.forEach(category -> {
 			try {
-				csvBeanWriter.write(user, fieldMappings);
+				category.setName(category.getName().replace("--", "  "));
+				csvBeanWriter.write(category, fieldMappings);
 			} catch (IOException e) {
 				throw new RuntimeException("Problem mapping csv row.",e);
 			}
 		});
 		
 		csvBeanWriter.close();
+		
 	}
+
+	
 
 }

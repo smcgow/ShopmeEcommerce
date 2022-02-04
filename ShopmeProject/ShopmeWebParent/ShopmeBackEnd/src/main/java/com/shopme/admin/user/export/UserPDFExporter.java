@@ -15,14 +15,14 @@ import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
+import com.shopme.admin.AbstractExporter;
 import com.shopme.common.entity.User;
 
-public class UserPDFExporter extends AbstractExporter {
+public class UserPDFExporter extends AbstractExporter<User> {
 
-	@Override
 	public void export(List<User> users, HttpServletResponse response) throws IOException {
 		
-		this.setResponseHeader("application/pdf", ".pdf", response);
+		this.setResponseHeader("application/pdf", ".pdf","users", response);
 
 		Document document = new Document(PageSize.A4);
 		PdfWriter pdfWriter = PdfWriter.getInstance(document, response.getOutputStream());

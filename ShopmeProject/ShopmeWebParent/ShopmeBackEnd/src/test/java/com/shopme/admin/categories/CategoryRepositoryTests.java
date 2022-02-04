@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Rollback;
 
@@ -168,8 +170,9 @@ public class CategoryRepositoryTests {
 	
 	@Test
 	public void testfindByNameLikeAndAliasLike() {
-		List<Category> categories = categoryRepository.findByNameLikeOrAliasLike("%omp%", "%omp%");
-		assertThat(categories.size()).isGreaterThan(0);
+		PageRequest pageRequest = PageRequest.of(0, 4);
+		Page<Category> categories = categoryRepository.findByNameLikeOrAliasLike("%omp%", "%omp%", pageRequest);
+		assertThat(categories.getContent().size()).isGreaterThan(0);
 	}
 
 	private void recurseChildren(Category category, int level) {
