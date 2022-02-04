@@ -22,15 +22,13 @@
 		</th>
 		
 		
-		<a th:fragment="page_link(pageNum,linkText)"  class="page-link" 
-			th:href="@{'/users/page/' + ${pageNum} + '/?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">[[${linkText}]]</a>
 		
 		<div th:fragment="page_footer()" class="text-center m-3">
 			<p>Shopme Control Panel - Copyright &copy;Shopme</p>
 		</div>
 		
-		
-		<div th:fragment="category_status()">
+		<!-- th:remove tag removes the outer div from the html when the fragment is loaded -->
+		<div th:fragment="category_status()" th:remove="tag">
 			<a th:if="${category.enabled == true}" class="fas fa-check-circle fa-2x icon-green" 
 					th:href="@{'/categories/' + ${category.id} + '/enabled/false'}"
 					title="Enable this category"></a>
@@ -39,9 +37,50 @@
 				title="Disable this category"></a>
 		</div>
 		
-		<div th:fragment="category_actions()">
+		<div th:fragment="category_actions()" th:remove="tag">
 			<a class="fas fa-edit fa-2x icon-green" th:href="@{'/categories/edit/' + ${category.id}}" title="Edit this category"></a>
 			<a th:if="${category.children.isEmpty()}" class="fas fa-trash fa-2x icon-dark link-delete" th:entityId="${category.id}" th:href="@{'/categories/delete/' + ${category.id}}" title="Delete this category"></a>
+		</div>
+		
+		<a th:fragment="page_link(pageNum,linkText,moduleUrl)"  class="page-link" 
+			th:href="@{'/' + ${moduleUrl} +'/page/' + ${pageNum} + '/?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">[[${linkText}]]</a>
+		
+		
+		<div th:fragment="pagination(moduleUrl,entityText)" th:remove="tag">
+		
+			<div class="text-center m-1" >
+					<span th:if="${totalItems > 0}">Showing [[${entityText}]] # [[${startCount}]] to [[${endCount}]] of [[${totalItems}]]</span>
+					<span th:unless="${totalItems > 0}">No [[${entityText}]] found</span>
+				</div>
+					
+			<div th:if="${totalPages > 1}">
+				<nav  aria-label="Page navigation">
+				  <ul class="pagination justify-content-center flex-wrap">
+				  	
+				  	<li th:class="${currentPage == 1 ? 'page-item disabled' : 'page-item'}">
+				  		<a th:replace="fragments :: page_link(1,'First',${moduleUrl})"></a>
+				  	</li>
+				    
+				    <li th:class="${currentPage == 1 ? 'page-item disabled' : 'page-item'}">
+				    	<a th:replace="fragments :: page_link(${currentPage - 1},'Previous',${moduleUrl})"></a>
+				    </li>
+				    
+				    <li th:class="${currentPage != i} ? 'page-item' : 'page-item active'" 
+				    	th:each="i : ${#numbers.sequence(1,totalPages)}">
+				    	<a th:replace="fragments :: page_link(${i},${i},${moduleUrl})"></a>
+				    </li>
+				    
+				    <li th:class="${currentPage == totalPages ? 'page-item disabled' : 'page-item'}">
+				    	<a th:replace="fragments :: page_link(${currentPage + 1},'Next',${moduleUrl})"></a>
+				    </li>
+				    
+				    <li th:class="${currentPage == totalPages ? 'page-item disabled' : 'page-item'}">
+				    	<a th:replace="fragments :: page_link(${totalPages},'Last',${moduleUrl})"></a>
+				    	</li>
+				  </ul>
+				</nav>
+			</div>
+		
 		</div>
 					    
 	</body>

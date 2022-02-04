@@ -43,8 +43,8 @@
 						<th>Id</th>
 						<th>Category Image</th>
 						<th>
-							<a th:if="${sortDir} == 'asc'" th:href="@{'/categories?sortDir=desc'}" class="text-white">Category Name</a>
-							<a th:if="${sortDir} == 'desc'" th:href="@{'/categories?sortDir=asc'}" class="text-white">Category Name</a>
+							<a th:if="${sortDir} == 'asc'" th:href="@{'/categories/page/' + ${currentPage} + '?sortDir=desc'}" class="text-white">Category Name</a>
+							<a th:if="${sortDir} == 'desc'" th:href="@{'/categories/page/' + ${currentPage} + '?sortDir=asc'}" class="text-white">Category Name</a>
 							<span th:class="${sortDir} == 'asc' ? 'fas fa-sort-down' : 'fas fa-sort-up'"></span>
 						</th>
 						<th>Alias</th>
@@ -73,6 +73,7 @@
 			</div>
 			
 			
+			<div th:replace="fragments :: pagination('categories', 'top level categories')"></div>
 			
 			<div th:replace="modal_fragments :: confirm_delete_dialog()"></div>
 			

@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.shopme.admin.FileUploadUtil;
 import com.shopme.admin.category.CategoryNotFoundException;
+import com.shopme.admin.category.CategoryPageInfo;
 import com.shopme.admin.category.CategoryService;
 import com.shopme.common.entity.Category;
 
@@ -29,15 +30,42 @@ public class CategoryController {
 	public String listCategories(@RequestParam(name = "keyword", required = false) String keyword, 
 								@RequestParam(name = "sortDir", required = false) String sortDir, 
 								Model model) {
+		
+		
+		return listCategoriesByPage(keyword, sortDir, 1, model);
+	}
+	
+	@GetMapping("/categories/page/{pageNumber}")
+	public String listCategoriesByPage(@RequestParam(name = "keyword", required = false) String keyword, 
+								@RequestParam(name = "sortDir", required = false) String sortDir, 
+								@PathVariable(name = "pageNumber") int pageNumber, 
+								Model model) {
+		
 		List<Category> categories;
+		CategoryPageInfo categoryPageInfo = new CategoryPageInfo();
 		if(sortDir == null) {
 			sortDir = "asc";
 		}
+		
 		if(keyword == null) {
-			categories = categoryService.listAll(sortDir);
+			categories = categoryService.listByPage(sortDir,pageNumber, categoryPageInfo);
 		}else {
 			categories = categoryService.searchByKeyword(keyword);
 		}
+		
+		int startCount = ((pageNumber - 1) * CategoryService.CATEGORIES_PER_PAGE) + 1;
+		int endCount = startCount + CategoryService.CATEGORIES_PER_PAGE - 1;
+		if(endCount > categoryPageInfo.getTotalElements()) {
+			endCount = (int) categoryPageInfo.getTotalElements();
+		}
+		
+		model.addAttribute("currentPage",pageNumber);
+		model.addAttribute("startCount",startCount);
+		model.addAttribute("sortField", "name");
+		model.addAttribute("sortDir", sortDir);
+		model.addAttribute("endCount",endCount);
+		model.addAttribute("totalItems", categoryPageInfo.getTotalElements());
+		model.addAttribute("totalPages", categoryPageInfo.getTotalPages());
 		model.addAttribute("categories", categories);
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("sortDir", sortDir);
@@ -46,7 +74,7 @@ public class CategoryController {
 	
 	@GetMapping("/categories/new")
 	public String newCategory(Model model) {
-		List<Category> listCategories = categoryService.listCategoriesinHierArchicalForm("asc");
+		List<Category> listCategories = categoryService.listAll("asc");
 		model.addAttribute("listCategories", listCategories);
 		model.addAttribute("category", new Category());
 		model.addAttribute("pageTitle", "Create New Category");
@@ -55,7 +83,7 @@ public class CategoryController {
 	
 	@GetMapping("/categories/edit/{categoryId}")
 	public String editCategory(@PathVariable("categoryId") Integer categoryId, Model model,RedirectAttributes redirectAttributes) {
-		List<Category> listCategories = categoryService.listCategoriesinHierArchicalForm("asc");
+		List<Category> listCategories = categoryService.listAll("asc");
 		Category category;
 		try {
 			category = categoryService.getCategoryById(categoryId);

@@ -11,6 +11,9 @@ import java.util.TreeSet;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +26,14 @@ public class CategoryService {
 	@Autowired
 	CategoryRepository categoryRepository;
 	
+	public static int CATEGORIES_PER_PAGE = 4;
+	
+	public List<Category> listByPage(String sortDir, int pageNumber, CategoryPageInfo categoryPageInfo){
+		return listCategoriesinHierArchicalForm(sortDir,pageNumber,categoryPageInfo);
+	}
+	
 	public List<Category> listAll(String sortDir){
-		return listCategoriesinHierArchicalForm(sortDir);
+		return listCategoriesinHierArchicalForm(sortDir,0, null);
 	}
 	
 	public List<Category> searchByKeyword(String keyword){
@@ -44,7 +53,8 @@ public class CategoryService {
 		}
 	}
 	
-	public List<Category> listCategoriesinHierArchicalForm(String sortDir){
+	public List<Category> listCategoriesinHierArchicalForm(String sortDir, int pagenum, CategoryPageInfo categoryPageInfo){
+		
 		Sort sort;
 		if(sortDir.equals("asc")) {
 			sort = Sort.by("name").ascending();
@@ -56,7 +66,17 @@ public class CategoryService {
 		
 		
 		List<Category> hierarchicalCategories = new ArrayList<>();
-		List<Category> categories = categoryRepository.findRootCategories(sort);
+		List<Category> categories;
+		if(pagenum != 0) {
+			Pageable pageable = PageRequest.of(pagenum - 1, CATEGORIES_PER_PAGE, sort);
+			Page<Category> pageCategories = categoryRepository.findRootCategories(pageable);
+			categoryPageInfo.setTotalElements(pageCategories.getTotalElements());
+			categoryPageInfo.setTotalPages(pageCategories.getTotalPages());
+			categories = pageCategories.getContent();
+		}else {
+			categories = categoryRepository.findRootCategories(sort);
+		}
+		
 		categories.forEach(category -> {
 			hierarchicalCategories.add(category);
 			recurseChildren(category,0,hierarchicalCategories,sortDir);
