@@ -1,4 +1,4 @@
-package com.shopme.admin.categories;
+package com.shopme.admin.category;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

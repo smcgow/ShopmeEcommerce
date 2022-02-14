@@ -18,6 +18,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "brands")
@@ -26,6 +27,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 public class Brand {
 
 	@Id
@@ -44,6 +46,8 @@ public class Brand {
 			joinColumns = @JoinColumn(name = "brand_id"),
 			inverseJoinColumns = @JoinColumn(name = "category_id")
 			)
+	
+	@Builder.Default
 	Set<Category> categories = new HashSet<>();
 	
 }

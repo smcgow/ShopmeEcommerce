@@ -6,4 +6,6 @@ import com.shopme.common.entity.Brand;
 
 public interface BrandRepository extends JpaRepository<Brand, Integer> {
 
+	Brand findByName(String name);
+	
 }
