@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -49,5 +50,13 @@ public class Brand {
 	
 	@Builder.Default
 	Set<Category> categories = new HashSet<>();
+	
+	@Transient
+	public String getLogoPath() {
+		if(this.getLogo() == null || this.getLogo().isBlank()) {
+			return "/images/image-thumbnail.png";
+		}
+		return "/brand-logos/" + this.getId() + "/" + this.getLogo();
+	}
 	
 }
