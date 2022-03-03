@@ -1,5 +1,7 @@
 package com.shopme.admin.brand;
 
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -28,5 +30,39 @@ public class BrandService {
 		
 		return brandRepository.findAll(pageRequest);
 	}
+	
+	public Brand get(Integer id) throws BrandNotFoundException {
+		try {
+			return brandRepository.findById(id).get();
+		}catch(NoSuchElementException ex) {
+			throw new BrandNotFoundException("Could not find brand with id " + id);
+		}
+	}
+	
+	public void delete(Integer id) throws BrandNotFoundException {
+		Long countById = brandRepository.countById(id);
+		if(countById == null || countById <= 0) {
+			throw new BrandNotFoundException("Could not find brand to delete with id " + id);
+		}
+		brandRepository.deleteById(id);
+	}
+	
+	public Brand save(Brand brand) {
+		return brandRepository.save(brand);
+	}
+
+	public String checkUnique(Integer id, String name) {
+		Brand findByName = brandRepository.findByName(name);
+		if(findByName == null) {
+			return "OK";
+		}else if(id == findByName.getId()) {
+			return "OK";
+		}else {
+			return "Duplicate";
+		}
+	}
+	
+	
+	
 
 }

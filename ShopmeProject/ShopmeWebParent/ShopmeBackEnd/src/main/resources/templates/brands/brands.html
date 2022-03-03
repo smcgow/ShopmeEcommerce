@@ -31,8 +31,7 @@
 						<tr th:each="brand : ${listBrands}">
 							<td>[[${brand.id}]]</td>
 							<td>
-								<span th:if="${brand.logo != null}" class="fas fa-portrait fa-3x icon-silver"></span>
-								<!-- <img th:if="${brand.logo != null}" th:src="@{${brand.logoImagePath}}" style="width: 100px;"/> -->
+								<img th:src="@{${brand.logoPath}}" style="width: 100px;" class="img-fluid"/>
 							</td>
 							<td>[[${brand.name}]]</td>
 								
@@ -60,11 +59,11 @@
 		<script type="text/javascript">
 			$(document).ready(function(){
 			
-				moduleUrl = "[[@{/users}]]"
+				moduleUrl = "[[@{/brands}]]"
 					
 				$(".link-delete").on("click", function(event){
 					event.preventDefault();
-					showDeleteConfirmationModal($(this),'user')
+					showDeleteConfirmationModal($(this),'brand')
 				})
 				
 				$("#clearButton").on('click', function(){

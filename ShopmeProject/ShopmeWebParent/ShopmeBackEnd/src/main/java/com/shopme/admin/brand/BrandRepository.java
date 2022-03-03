@@ -8,4 +8,6 @@ public interface BrandRepository extends JpaRepository<Brand, Integer> {
 
 	Brand findByName(String name);
 	
+	Long countById(Integer id);
+	
 }
