@@ -1,4 +1,4 @@
-package com.shopme.admin.categories;
+package com.shopme.admin.category;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,7 +14,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Rollback;
 
-import com.shopme.admin.category.CategoryRepository;
 import com.shopme.common.entity.Category;
 
 import lombok.extern.slf4j.Slf4j;

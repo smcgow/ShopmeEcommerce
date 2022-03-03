@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head th:replace="fragments :: page_head('Brands - Shopme Admin')">
+	
+	<body>
+		<div class="container-fluid">
+		
+			<div th:replace="navigation :: page_menu()"></div>
+			
+			<div>
+				<h1>Manage Brands</h1>
+				<a th:href="@{/brands/new}" class="fas fa-user-plus fa-2x icon-dark mr-2"></a>
+				<a th:href="@{/brands/export/csv}" class="fas fa-file-csv fa-2x icon-dark mr-2"></a>
+			</div>
+			
+		
+			<div th:replace="fragments :: search_form_and_message('brands/page/1')"></div>
+			
+			
+			<div class="full-details">
+				<table class="table table-bordered table-striped table-hover table-responsive-xl">
+					<thead class="thead-dark">
+						<th>ID</th>
+						<th>Logo</th>
+						<th>Name</th>
+						<th>Categories</th>
+						<th></th>
+					</thead>
+					<tbody>	
+						<tr th:each="brand : ${listBrands}">
+							<td>[[${brand.id}]]</td>
+							<td>
+								<img th:src="@{${brand.logoPath}}" style="width: 100px;" class="img-fluid"/>
+							</td>
+							<td>[[${brand.name}]]</td>
+								
+							
+							<td><span class="mr-1 badge badge-secondary" th:each="category : ${brand.categories}">[[${category.name}]]</span></td>
+							<td>
+								<div th:replace="fragments :: edit('brand','/brands/edit/' + ${brand.id})"></div>
+								<div th:replace="fragments :: delete('brand','/brands/delete/' + ${brand.id},${brand.id},${true})"></div>
+						    </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			
+			<div th:replace="fragments :: pagination('brands','brands')"></div>
+			
+			<div th:replace="modal_fragments :: confirm_delete_dialog()"></div>
+			
+			<div th:replace="fragments :: page_footer()"></div>
+			
+			
+			
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function(){
+			
+				moduleUrl = "[[@{/brands}]]"
+					
+				$(".link-delete").on("click", function(event){
+					event.preventDefault();
+					showDeleteConfirmationModal($(this),'brand')
+				})
+				
+				$("#clearButton").on('click', function(){
+					clearFilter()
+				})
+				
+			})
+		</script>	
+		<script type="text/javascript" th:src="@{/js/common_list.js}"></script>
+		
+	</body>
+</html>

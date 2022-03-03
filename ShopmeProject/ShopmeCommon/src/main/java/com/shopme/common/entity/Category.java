@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -57,6 +58,7 @@ public class Category {
 				+ enabled + "]";
 	}
 	
+	@Transient
 	public String getImagePath() {
 		if(this.getImage() == null || this.getImage().isBlank()) {
 			return "/images/image-thumbnail.png";
